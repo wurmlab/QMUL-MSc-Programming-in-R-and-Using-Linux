@@ -9,11 +9,12 @@
 
 * [Basic introduction to R](./Rbasics.md)
 * Programming in R (for 2-3 afternoons)], including three parts:
-  * [Regular expressions](./prac1-regex.md)
-  * [Functions](./prac2-functions_for_if.md#functions)
-  * [Loops](./prac2-functions_for_if.md#loops)
-  * [If statements](./prac2-functions_for_if.md#if-statements)
-  * [Extra exercises](./prac3-extra.md)
+  * Practical 1: [regular expressions](./prac1-regex.md)
+  * Practical 2:
+    1. [Functions](./prac2-functions_for_if.md#functions)
+    2. [Loops](./prac2-functions_for_if.md#loops)
+    3. [If statements](./prac2-functions_for_if.md#if-statements)
+  * Practical 3: [Extra exercises](./prac3-extra.md)
 * [Introduction to Unix (on Amazon AWS)](./unix.md)
 
 
