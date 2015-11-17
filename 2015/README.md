@@ -2,12 +2,11 @@
 
 ## Slides:
 
-* [Slides from Intro to programming  (2014-11-12)][1]
-* [Slides about software sustainability & reproducible research (2014-11-13)][2]
+* [Slides from Intro to programming][1]
 
 ## Practicals:
 
-* [Basic introduction to R](./Rbasics.md)
+* [Basic introduction to R](./Rbasics.md) - go through this if you're unsure about data handling and subsetting!
 * Programming in R (for 2-3 afternoons)], including three parts:
   * Practical 1: [regular expressions](./prac1-regex.md)
   * Practical 2:
@@ -18,12 +17,9 @@
 * [Introduction to Unix (on Amazon AWS)](./unix.md)
 
 
-## Logistics
-
 ## Contributors
 
-[Yannick Wurm](http://yannick.poulet.org), [Rodrigo Pracana](http://www.sbcs.qmul.ac.uk/staff/rodrigopracana.html), [Bruno Vieira](https://github.com/bmpvieira) (and more1).
+[Yannick Wurm](http://yannick.poulet.org), [Rodrigo Pracana](http://www.sbcs.qmul.ac.uk/staff/rodrigopracana.html), [Bruno Vieira](https://github.com/bmpvieira) (and more).
 
 
-[1]: http://www.slideshare.net/yannickwurm/2014-1112-sbsm032rstatsprogrammingkey
-[2]: http://www.slideshare.net/yannickwurm/2014-1113sbsm032reproducible-research
+[1]: http://www.slideshare.net/yannickwurm/2015-1117programming-inrkey
