@@ -19,7 +19,7 @@
 
 ## Contributors
 
-[Yannick Wurm](http://yannick.poulet.org), [Rodrigo Pracana](http://www.sbcs.qmul.ac.uk/staff/rodrigopracana.html), [Bruno Vieira](https://github.com/bmpvieira) (and more).
+[Yannick Wurm](http://yannick.poulet.org), [Rodrigo Pracana](http://www.sbcs.qmul.ac.uk/staff/rodrigopracana.html), [Bruno Vieira](https://github.com/bmpvieira), Jasmin Zohren, James Wright, Robert Verity and more.
 
 
 [1]: http://www.slideshare.net/yannickwurm/2015-1117programming-inrkey
