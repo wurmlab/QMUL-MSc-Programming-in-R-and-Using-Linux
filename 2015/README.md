@@ -12,9 +12,9 @@
   * [Regular expressions](./prac1-regex.md)
   * [Functions](./prac2-functions_for_if.md#functions)
   * [Loops](./prac2-functions_for_if.md#loops)
-  * [If statements](./prac2-functions_for_if.md##If\ statements)
-  * [Extra exercises](/2015/prac3-extra.md)
-* [Introduction to Unix (on Amazon AWS)](/2015/unix.md)
+  * [If statements](./prac2-functions_for_if.md#If\ statements)
+  * [Extra exercises](./prac3-extra.md)
+* [Introduction to Unix (on Amazon AWS)](./unix.md)
 
 
 ## Logistics
