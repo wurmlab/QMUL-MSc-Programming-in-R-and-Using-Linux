@@ -16,8 +16,8 @@ cd public
 git init
 
 
-git config user.name "lrsantiago"
-git config user.email "l.santiago@qmul.ac.uk"
+git config user.name "roddypr"
+git config user.email "rodrigopracana@gmail.com"
 git remote add deploy "https://$GH_TOKEN@github.com/wurmlab/SBC361-programming-in-R.git"
 
 git fetch deploy gh-pages
