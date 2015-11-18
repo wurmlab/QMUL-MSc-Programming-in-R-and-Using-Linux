@@ -1,8 +1,6 @@
 # Computing in R - Practical 2
 
-SBC361: Research Methods and Communication
-
-October 2015
+November 2015
 
 In this session we will build on some of the skills learned in the previous practical and will move on to consider some more advanced ways of controlling program flow. Today we will be exploring **functions**, **loops** and **if statements**.  These are some of the most important features of any programming language, including R.
 
