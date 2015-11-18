@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="public/theme.css" type="text/css" />
+</head>
+<body>
+<h1 id="introduction-the-basics">Introduction: the basics</h1>
+<h2 id="the-environment">The environment</h2>
+<p>To start with, let us reacquaint ourselves with the R environment. First of all, launch R (in the computer room, probably the “Bio version” if there are several to choose from; but any R install should be fine).</p>
+<p>Once you have done this you should see a single window. This is called the console. The console is where you go to actually run lines of code. The other major way in which you will program in R is by writing code in a separate file called a script. Create a new script by going to File&gt; New script. An empty window pops up, in which you can also type code. Try typing 1+2 in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other text editor. In order to run the code that we have written in a script we need to select the line(s) that we want to run and go to Edit&gt;Run line or selection. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands (i.e. a program) in a way that would not be possible by working directly in the console. In general you should work mainly with scripts and only use the console for small tasks like checking that your script is working as planned.</p>
+<p>!Tip! - To run an entire script, first select all with the keyboard shortcut Ctrl+a, then run selected lines with the shortcut Ctrl+r (Windows only). This also works for just a single selected line.</p>
+<p>We strongly suggest that you write anything you want to keep in scripts and that you save these scripts in your home directory or on a USB stick. (Scripts are just text files; most people use up using other text editors, such as SublimeText, TextWrangler, or they run R using RStudio; all these options make the code prettier and easier to read.).</p>
+<p>It is also worth keeping in mind that the R help is extremely good. Just put a question mark before any function that you do not understand (e.g. ?length) to bring up the help file for that function. There are also many R websites and forums that you may find useful. The best way to learn any programming language is to fiddle - so please fiddle away with these tools to guide you!</p>
+<h2 id="variables">Variables</h2>
+<p>A variable is a symbolic way of storing a particular set of values and/or characters. For example, try typing</p>
+<pre><code>x &lt;- 5</code></pre>
+<p>into the console and hitting return. This assigns the number <code>5</code> to the symbol <code>x</code>. You can run operations on variables (e.g. <code>3*x^2</code>), create new variables from existing variables (e.g. <code>y &lt;- 3*x^2</code>), and reassign existing variables to a new value (e.g.<code>x &lt;- 3*x^2</code>).</p>
+<h3 id="a-note-on-assigning-variables">A note on assigning variables:</h3>
+<p>The <code>=</code> symbol can also be used for assignment instead of <code>&lt;-</code>, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use <code>&lt;-</code> . When in doubt about how to write something, check Google’s R style guide; it provides standard guidelines which most R users follow.</p>
+<p>It’s worth pointing out that you can name variables almost anything you want. Try using descriptive names (avoiding x and y), but don’t make the it too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.</p>
+<p>Finally some variable names are not allowed. Typing <code>?make.names</code> in the console brings up a help file describing the important variable name restrictions.</p>
+<h2 id="data-classes">Data classes</h2>
+<p>There are several classes of data. In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function <code>class()</code> to check the class of a variable.</p>
+<p>You will probably have met variables of class numeric (<code>x &lt;- 5</code>) and character (<code>x &lt;- ‘hello’</code>). An important class of data that you might not be familiar with is logical data. Simply put, logical data can only take one of two possible values: <code>TRUE</code> or <code>FALSE</code>. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example</p>
+<pre><code>x &lt;- TRUE</code></pre>
+<p>or false, for example</p>
+<pre><code>x &lt;- FALSE</code></pre>
+<p>Try creating a logical variable in this way and look at the class of the variable - if you have done it correctly it should read &quot;logical&quot;(keep in mind that R is case-sensitive, i.e. x &lt;- false will throw an error). However, this is not the way that logical variables tend to be used in programming. More often than not we arrive at a logical variable through a particular type of calculation, called a logical expression. You can think of a logical expression as a statement that we send to R, which may be a true statement, or it may be a lie! For example, try evaluating the code</p>
+<pre><code>5 &gt; 4</code></pre>
+<p>This statement is clearly true and accordingly R returns a value &quot;TRUE&quot;. The statement</p>
+<pre><code>5 &lt; 4</code></pre>
+<p>on the other hand, returns the value &quot;FALSE&quot;. We can assign this logical value to a variable by using the logical expression as input to the variable. This sounds complicated, but in practice it is very simple. Take the example</p>
+<pre><code>x &lt;- (5 &gt; 4)</code></pre>
+<p>You can read this to mean &quot;the variable x is assigned the outcome of the logical expression 5 &gt; 4&quot;. In this particular example the variable x will be assigned the logical value &quot;TRUE&quot;. Notice that the logical expression itself has been placed within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.</p>
+<p>The main logical operators that you should be familiar with are the following:<br /><em><code>&gt;</code> is greater than<br /></em><code>&lt;</code> is less than<br /><em><code>&gt;=</code> is greater than or equal to<br /></em><code>&lt;=</code> is less than or equal to<br /><em><code>==</code> is equal to<br /></em><code>!=</code> is not equal to</p>
+<p>Have a play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.</p>
+<p>We can create more sophisticated logical expressions using the &quot;and&quot; command and the &quot;or&quot; command. The &quot;and&quot; command is written <code>&amp;</code> (keyboard shortcut Shift+7), while the &quot;or&quot; command is written <code>|</code> (keyboard shortcut Shift+\ on a standard Windows keyboard). These operators can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression</p>
+<pre><code>(x &gt; 5) &amp; (x &lt;= 10)</code></pre>
+<p>can be read &quot;x is greater than five, and x is less than or equal to ten&quot;. Similarly, the expression</p>
+<pre><code>(x &lt; 6) | (x == 12)</code></pre>
+<p>can be read &quot;x is less than six, or x is equal to twelve&quot;. By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.</p>
+<h2 id="types-of-objects">Types of Objects</h2>
+<h3 id="scalars-and-vectors">Scalars and vectors</h3>
+<p>Objects can be of different types. So far, we have looked at scalar objects, which contain a single variable (e.g. x &lt;- 3). Another very common type of object is the vector, which is an object containing several elements:</p>
+<pre><code>vec1 &lt;- c(1, 1, 2, 3, 5, 8)
+vec2 &lt;- 5:10
+vec3 &lt;- seq(0, 10, 0.25)
+vec4 &lt;- rep(2, 12)
+vec5 &lt;- c(&quot;How&quot;, &quot;Now&quot;, &quot;Brown&quot;, &quot;Cow&quot;)
+vec6 &lt;- c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE)</code></pre>
+<p>As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector (e.g. <code>x[3]</code>) and of applying simple operations on all elements of the vector (e.g. <code>vec1*3</code> or <code>vec1*vec2</code>). Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.</p>
+<h3 id="matrices">Matrices</h3>
+<p>Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions <code>rbind()</code> and <code>cbind()</code> (try <code>rbind(vec1, vec2)</code>).</p>
+<p>You can also create matrices directly in a number of different ways:</p>
+<pre><code>mat1 &lt;- matrix(1:24, nrow=6, ncol=4)
+mat2 &lt;- matrix(1:24, nrow=6, ncol=4, byrow=T)
+mat3 &lt;- diag(x=5)
+mat4 &lt;- outer(X=1:5, Y=4:8)
+mat5 &lt;- matrix(&quot;Hello World&quot;, nrow=2, ncol=5)</code></pre>
+<p>As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index! (<code>mat1[4,3]</code>, <code>mat1[1:4, 1:2]</code>, <code>mat1[1:3,]</code>). You can perform simple calculations on matrices, in which case the calculation applies to each element separately (<code>(mat3 + 2)*2</code> ). You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible (<code>(mat3*100) + mat4)</code>. Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating <code>(mat1 &gt; 10)</code>.</p>
+<h3 id="data-frame">Data frame</h3>
+<p>A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are loaded into R by default (<code>puromycin.data &lt;- Puromycin</code>). Like in matrices, you can access different elements of the data frame using indices (<code>puromycin.data[1,1]</code>). While you can get to specific columns using an index (<code>puromycin.data[,2]</code>), R allows you to get to specific columns using their name and the dollar sign: <code>puromycin.data$rate</code>. Note that, although the data frame is of class data frame, typing <code>puromycin.data$rate</code> will return a vector of class numeric (try using the function <code>class()</code> to check this).</p>
+<p>Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Check <code>puromycin.data$rate</code> as an example.</p>
+<h3 id="lists">Lists</h3>
+<p>The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:</p>
+<pre><code>mylist &lt;- list(A = c(1,2,3), B=c(5,6,7,8,9,10), D=c(&#39;G&#39;, &#39;H&#39;))</code></pre>
+<p>Again, we can access elements from the list using their index. However, using a single bracket <code>[]</code> will return a list (<code>mylist[1]</code>), while using the double bracket will return an object of the same type as the element of the list (<code>mylist[[1]]</code> will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (<code>mylist[['A']]</code>) or the dollar sign (<code>mylist$A</code>). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…</p>
+<p>There are other types of data in R, with many being specific to particular libraries.</p>
+<h2 id="subsetting-a-data-frame">Subsetting a data frame</h2>
+<p>We have already come across one way of subsetting through the use of square brackets. By typing, for example,</p>
+<pre><code>puromycin.data &lt;- Puromycin
+puromycin.data[1:3, ]</code></pre>
+<p>we can isolate certain rows of the data frame that we are interested in.<br />We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:</p>
+<pre><code>#returns TRUE or FALSE
+puromycin.data[puromycin.data$rate &lt; 100, ]
+#returns which elements are TRUE
+which(puromycin.data$rate &lt; 100)</code></pre>
+<p>We can use the index to select the rows for which the statement is TRUE:</p>
+<pre><code>#returns all the columns, but only the rows for which #puromycin.data$rate &lt; 100 is TRUE
+subdata &lt;- puromycin.data[puromycin.data$rate &lt; 100, ]</code></pre>
+<p>When subsetting data frames, we can also use the subset function, which has a more clear syntax, as the $ is not necessary:</p>
+<pre><code>subdata &lt;- subset(puromycin.data, rate &lt; 100)</code></pre>
+<p>We could subset by the state column:</p>
+<pre><code>## First alternative
+subdata &lt;- puromycin.data[puromycin.data$state == &quot;treated&quot;, ]
+## Second alternative
+subdata &lt;- subset(puromycin.data, state == &quot;treated&quot;)</code></pre>
+<p>This will return all fields for which the state is equal to &quot;treated&quot;. Notice that the factor must be written in quotation marks here, as R needs to know that it is looking for a particular set of characters, rather than a variable.</p>
+<h2 id="data-input-from-files">Data input from files</h2>
+<p>Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download river.csv and kaiser.xls and try loading them into R.</p>
+<pre><code>river.data  &lt;- read.csv(“river.csv”)      # if you’re in the right directory
+river.data  &lt;- read.csv(file.choose())    # to choose the file
+kaiser.data &lt;- read.xls(“kaiser.xls”, sheet=1)
+# try to figure out how to import Excel spreadsheets into R,
+# which is an excessively discussed topic online</code></pre>
+<h2 id="setting-the-working-directory">Setting the working directory</h2>
+<p>Setting directory is a highly intensely used function which helps group your code and your data, and access to different paths. For example, if you want to save a series of graphs that were generated by accessing data outside the current folder in a loop, it saves you time by grouping data for you.</p>
+<pre><code># set the working directory
+setwd(“C:/Users/Public/Documents”)   # or use the equivalent menu options
+# get all the file names in the current directory
+list.files(path=&quot;.&quot;)
+# get the current working directory
+getwd()</code></pre>
+<h2 id="data-output-into-various-formats">Data output into various formats</h2>
+<p>Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).</p>
+<pre><code># write a new subsetted data frame (create this using your previous skills) into a CSV file
+write.csv(my.river.subset, file = “myRiverSubset.csv”)
+# import this into Excel
+# create three variables, a, b, and c of any class and save them into a .Rdata file (What is this? When could it be useful?)
+save(a, b, c, file=”nodeProperty.Rdata”)</code></pre>
+<h2 id="good-coding-practice">Good coding practice</h2>
+<p>Keep your code clean and tidy by making use of comments and white space and respecting the style guide. Comments start with the character # (R simply does not interpret anything written between a comment sign and the end of the line. They allow you to annotate your code, i.e. to write helpful notes in between all the raw program code. Notice also that white space such as empty lines, spaces and indentations (obtained by pressing the Tab key) are invisible to R. Making good use of white space helps keep your code readable, and so does using clear and descriptive variable names.</p>
+<p>The following two examples make this point clear. Both programs do exactly the same thing, but one will make sense one year from now, and the other will not!<br />```<br />Example 1<br />boooom &lt;-0.01<br />blah2 =0.005<br /> blah3&lt;- 0.0036<br />bigblah = boooom+ blah2 + blah3<br />tadayeahmanfunky&lt;-100<em>exp(bigblah</em>10)<br />tadayeahmanfunky</p>
+<p>Example 2</p>
+<h1 id="section">--------------------------------</h1>
+<h1 id="program-popsize.r">Program: PopSize.R</h1>
+<h1 id="author-bob-verity">Author: Bob Verity</h1>
+<h1 id="date-01102013">Date: 01/10/2013</h1>
+<h1 id="purpose">Purpose:</h1>
+<h1 id="works-out-the-size-of-a-population-under-a-simple-model-of-exponential-growth.">Works out the size of a population under a simple model of exponential growth.</h1>
+<h1 id="the-growth-rate-is-assumed-to-be-equal-to-the-sum-of-the-nutrient-content-sugars">The growth rate is assumed to be equal to the sum of the nutrient content (% sugars),</h1>
+<h1 id="the-temperature-centigrade-above-20-and-the-humidity-.">the temperature (centigrade above 20), and the humidity (%).</h1>
+<h1 id="other-parameters-include-the-starting-population-size-number-of-individuals">Other parameters include the starting population size (number of individuals)</h1>
+<h1 id="and-the-time-allowed-to-grow-hours.">and the time allowed to grow (hours).</h1>
+<h1 id="section-1">--------------------------------</h1>
+<h1 id="define-input-parameters">Define input parameters</h1>
+<p>nutrients &lt;- 0.01<br />temp &lt;- 0.005<br />humidity &lt;- 0.0036<br />starting.size &lt;- 100<br />grow.time &lt;- 10</p>
+<h1 id="calculate-total-growth-rate">Calculate total growth rate</h1>
+<p>growth.rate &lt;- nutrients+temp+humidity</p>
+<h1 id="calculate-population-size-at-the-end-of-the-time-period">Calculate population size at the end of the time period</h1>
+<p>end.size &lt;- starting.size * exp( growth.rate*grow.time )</p>
+<h1 id="return-end-population-size-in-the-console">Return end population size in the console</h1>
+<p>end.size</p>
+<h1 id="section-2">--------------------------------</h1>
+</body>
+</html>

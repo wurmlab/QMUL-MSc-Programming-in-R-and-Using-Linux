@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="public/theme.css" type="text/css" />
+</head>
+<body>
+<h1 id="computing-in-r---practical-1">Computing in R - Practical 1</h1>
+<p>SBC361: Research Methods and Communication</p>
+<p>October 2015</p>
+<p>Yannick Wurm and Rodrigo Pracana (and Robert Verity)</p>
+<h2 id="the-environment">The environment</h2>
+<p>To start with, let us reacquaint ourselves with the R environment. First of all, launch R (in the computer room, probably the “Bio version” if there are several to choose from; but any R install should be fine).</p>
+<p>Once you have done this you should see a single window. This is called the console. The console is where you go to actually run lines of code. The other major way in which you will program in R is by writing code in a separate file called a script. Create a new script by going to File&gt; New script. An empty window pops up, in which you can also type code. Try typing 1+2 in this window and pressing return. Notice that no output is produced - the cursor just moves to the next line. This is because a script is fundamentally different from the console and in fact works just like any other text editor. In order to run the code that we have written in a script we need to select the line(s) that we want to run and go to Edit&gt;Run line or selection. This copies the selected line(s) over to the console and evaluates them in the order they are written. In this way we can create a long sequence of commands (i.e. a program) in a way that would not be possible by working directly in the console. In general you should work mainly with scripts and only use the console for small tasks like checking that your script is working as planned.</p>
+<p>!Tip! - To run an entire script, first select all with the keyboard shortcut Ctrl+a, then run selected lines with the shortcut Ctrl+r (Windows only). This also works for just a single selected line.</p>
+<p>We strongly suggest that you write anything you want to keep in scripts and that you save these scripts in your home directory or on a USB stick. (Scripts are just text files; most people use up using other text editors, such as SublimeText, TextWrangler, or they run R using RStudio; all these options make the code prettier and easier to read).</p>
+<p>It is also worth keeping in mind that the R help is extremely good. Just put a question mark before any function that you do not understand (e.g. ?length) to bring up the help file for that function. There are also many R websites and forums that you may find useful. The best way to learn any programming language is to fiddle - so please fiddle away with these tools to guide you!</p>
+<h2 id="variables">Variables</h2>
+<p>A variable is a symbolic way of storing a particular set of values and/or characters. For example, try typing</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">5</span>
+y &lt;-<span class="st"> </span><span class="dv">225</span></code></pre>
+<p>into the console and hitting return. This assigns the number <code>5</code> to the symbol <code>x</code>. You can run operations on variables (e.g. <code>3*x^2</code>), create new variables from existing variables (e.g. <code>y &lt;- 3*x^2</code>), and reassign existing variables to a new value (e.g.<code>x &lt;- 3*x^2</code>).</p>
+<p>The <code>=</code> symbol can also be used for assignment instead of <code>&lt;-</code>, but this is frowned upon by most R users (it makes your code less readable). Thus please try to use <code>&lt;-</code> . When in doubt about how to write something, check <a href="http://adv-r.had.co.nz/Style.html">Hadley Wickham style guide</a>; it provides standard guidelines which most R users follow.</p>
+<p>You can name variables almost anything you want. Try using descriptive names (avoiding x and y), but don’t make them too long! As a rule of thumb, remember to make your code easily understandable for other people, including your future self.</p>
+<p>Finally some variable names are not allowed. Typing <code>?make.names</code> in the console brings up a help file describing the important variable name restrictions.</p>
+<h4 id="q1.-make-a-new-variable-z-out-of-the-values-in-x-and-y.-you-can-choose-any-formula-you-want-for-z-as-long-as-it-contains-both-x-and-y.">Q1. Make a new variable, <code>z</code>, out of the values in <code>x</code> and <code>y</code>. You can choose any formula you want for <code>z</code>, as long as it contains both <code>x</code> and <code>y</code>.</h4>
+<h2 id="data-classes">Data classes</h2>
+<p>There are several classes of data. In simple terms, the class of your data tells you whether R interprets the data as numbers, letters, factors, logical values or a number of alternatives. You can use the function <code>class()</code> to check the class of a variable.</p>
+<p>You will probably have met variables of class numeric (<code>x &lt;- 5</code>) and character (<code>x &lt;- ‘hello’</code>). An important class of data that you might not be familiar with is logical data. Simply put, logical data can only take one of two possible values: <code>TRUE</code> or <code>FALSE</code>. There are a number of different ways of arriving at a logical variable. The most obvious is to simply define a variable as true, for example:</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="ot">TRUE</span></code></pre>
+<p>or false, for example</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="ot">FALSE</span></code></pre>
+<p>Try creating a logical variable in this way and look at the class of the variable - if you have done it correctly it should read &quot;logical&quot; (keep in mind that R is case-sensitive, i.e. x &lt;- false will throw an error). However, this is not the way that logical variables tend to be used in programming. More often than not we arrive at a logical variable through a particular type of calculation, called a logical expression. You can think of a logical expression as a statement that we send to R, which may be a true statement, or it may be a lie! For example, try evaluating the code</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> &gt;<span class="st"> </span><span class="dv">4</span></code></pre>
+<p>This statement is clearly true and accordingly R returns a value <code>TRUE</code>. The statement</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> &lt;<span class="st"> </span><span class="dv">4</span></code></pre>
+<p>on the other hand, returns the value <code>FALSE</code>. We can assign this logical value to a variable by using the logical expression as input to the variable. This sounds complicated, but in practice it is very simple. Take the example</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>(<span class="dv">5</span> &gt;<span class="st"> </span><span class="dv">4</span>)</code></pre>
+<p>You can read this to mean &quot;the variable x is assigned the outcome of the logical expression 5 &gt; 4&quot;. In this particular example the variable x will be assigned the logical value <code>TRUE</code>. Notice that the logical expression itself has been placed within parentheses. This is not strictly required, but is good coding practice as it avoids confusion between the assignment symbol and the logical expression.</p>
+<p>The main logical operators that you should be familiar with are the following:</p>
+<ul>
+<li><code>&gt;</code> is greater than</li>
+<li><code>&lt;</code> is less than</li>
+<li><code>&gt;=</code> is greater than or equal to</li>
+<li><code>&lt;=</code> is less than or equal to</li>
+<li><code>==</code> is equal to</li>
+<li><code>!=</code> is not equal to</li>
+</ul>
+<p>Have a play around with some of these operators in your own made-up logical expressions. Make sure you are comfortable assigning a logical value to a variable.</p>
+<p>We can create more sophisticated logical expressions using the &quot;and&quot; command and the &quot;or&quot; command. The &quot;and&quot; command is written <code>&amp;</code> (keyboard shortcut Shift+7), while the &quot;or&quot; command is written <code>|</code> (keyboard shortcut Shift+\ on a standard Windows keyboard). These operators can be placed between two or more logical expressions - exactly as you would do in a spoken sentence. For example, the expression</p>
+<pre class="sourceCode r"><code class="sourceCode r">(x &gt;<span class="st"> </span><span class="dv">5</span>) &amp;<span class="st"> </span>(x &lt;=<span class="st"> </span><span class="dv">10</span>)</code></pre>
+<p>can be read &quot;x is greater than five, and x is less than or equal to ten&quot;. Similarly, the expression</p>
+<pre class="sourceCode r"><code class="sourceCode r">(x &lt;<span class="st"> </span><span class="dv">6</span>) |<span class="st"> </span>(x ==<span class="st"> </span><span class="dv">12</span>)</code></pre>
+<p>can be read &quot;x is less than six, or x is equal to twelve&quot;. By using a combination of these operators, while making good use of parentheses, it is possible to come up with some quite complex statements.</p>
+<p><strong>A short note on classes:</strong></p>
+<p>It's easy to get numeric and character data confused. For example, in <code>x &lt;- &quot;blue&quot;</code>, <code>x</code> is of class &quot;character&quot;, while in <code>x &lt;- 4</code>, <code>x</code> is of class &quot;numeric&quot;. The problem comes if you type:</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> &quot;4&quot;</span></code></pre>
+<p>In this case <code>x</code> is of class &quot;character&quot; because of the quotation marks. Try typing <code>class(x)</code> if you are confused. You can also type <code>is.numeric(x)</code> and <code>is.character(x)</code>.</p>
+<h4 id="q2.-let-us-define-the-variable-x---10.-what-will-the-outcome-of-the-following-expressions-be">Q2. Let us define the variable <code>x &lt;- 10</code>. What will the outcome of the following expressions be?</h4>
+<ul>
+<li><code>(x &gt; 5)</code></li>
+<li><code>(x &lt;= 10)</code></li>
+<li><code>(x != 10)</code></li>
+<li><code>(x &lt; 5) &amp; (x &lt; 105)</code></li>
+<li><code>(x &lt; 4) | (x &gt; 14) | (x == 10)</code></li>
+</ul>
+<h4 id="q3.-below-are-some-of-the-rules-that-logical-operators-follow.-do-you-understand-what-each-rule-means">Q3. Below are some of the rules that logical operators follow. Do you understand what each rule means?</h4>
+<ul>
+<li><code>TRUE &amp; TRUE</code> is <code>TRUE</code></li>
+<li><code>TRUE &amp; FALSE</code> is <code>FALSE</code></li>
+<li><code>FALSE &amp; TRUE</code> is <code>FALSE</code></li>
+<li><code>TRUE | FALSE</code> is <code>TRUE</code></li>
+<li><code>FALSE | TRUE</code> is <code>TRUE</code></li>
+</ul>
+<h4 id="q4.-given-three-variables-x-y-and-z-how-would-you-write-the-following-sentence-in-a-logical-expression">Q4. Given three variables (<code>x</code>, <code>y</code> and <code>z</code>), how would you write the following sentence in a logical expression?</h4>
+<p><em>The variable <code>x</code> is less than variable <code>y</code>, or is it greater than variable <code>z</code>?</em></p>
+<h2 id="types-of-objects">Types of Objects</h2>
+<h3 id="scalars-and-vectors">Scalars and vectors</h3>
+<p>Objects can be of different types. So far, we have looked at scalar objects, which contain a single variable (e.g. <code>x &lt;- 3</code>). Another very common type of object is the <em>vector</em>, which is an object containing several elements:</p>
+<pre class="sourceCode r"><code class="sourceCode r">numeric_vec   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>)   <span class="co"># c is a function for combining values into a vector or list.</span>
+seq_vec1      &lt;-<span class="st"> </span><span class="dv">5</span>:<span class="dv">10</span>
+seq_vec2      &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">0.25</span>)
+rep_vec       &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">times =</span> <span class="dv">12</span>)
+character_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;How&quot;</span>, <span class="st">&quot;Now&quot;</span>, <span class="st">&quot;Brown&quot;</span>, <span class="st">&quot;Cow&quot;</span>)
+logical_vec   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</code></pre>
+<p>As you know by now, R is good at manipulating these vectors, with easy ways of accessing individual elements of a vector by using scalar objects as index (e.g. <code>x[3]</code>) and of applying simple operations on all elements of the vector (e.g. <code>vec1*3</code> or <code>vec1*vec2</code>). You can also use vectors to access a set of elements (e.g. <code>x[1:5]</code>) or specific elements (e.g. <code>x[c(2, 7, 9)]</code>) of a vector or variable. Remember that, for some calculations between different vectors, the vectors need to be compatible. This generally means they have lengths that are multiple of each other. Note that in R, the first position of a vector has the index 1, unlike in some other programming languages where the first position has the index 0.</p>
+<h4 id="q5.-what-number-would-you-obtain-if-you-typed-seq_vec13-in-the-console-try-working-this-out-for-yourself-before-typing-it-into-r">Q5. What number would you obtain if you typed <code>seq_vec1[3]</code> in the console? (try working this out for yourself before typing it into R)</h4>
+<h4 id="q6.-what-happens-when-you-type-seq_vec215-in-the-console-an-hit-return">Q6. What happens when you type <code>seq_vec2[1:5]</code> in the console an hit return?</h4>
+<h4 id="q7.-how-would-you-retrieve-just-the-8th-13th-and-21st-elements-of-seq_vec2">Q7. How would you retrieve just the 8th, 13th and 21st elements of <code>seq_vec2</code>?</h4>
+<p>Simple calculations can be performed on vectors, in which case the operation is applied to every element of the vector separately. For example, try typing</p>
+<pre class="sourceCode r"><code class="sourceCode r">numeric_vec_squared &lt;-<span class="st"> </span>numeric_vec^<span class="dv">2</span></code></pre>
+<p>in the console. You will find that <code>numeric_vec_squared</code> contains values taken from <code>numeric_vec</code>, where each element has been squared individually. Similarly, you can create logical expressions that apply to the whole matrix, such as <code>numeric_vec &gt; 3</code>.</p>
+<p>You can also perform operations involving several vectors, as long as the vectors have compatible lengths. For example, try typing</p>
+<pre class="sourceCode r"><code class="sourceCode r">combined_vec1 &lt;-<span class="st"> </span>numeric_vec*seq_vec1</code></pre>
+<p>You will find that each of the elements of <code>combined_vec1</code> is equal to the product of the corresponding elements in <code>numeric_vec</code> and <code>seq_vec1</code></p>
+<h4 id="q8.-try-evaluating-combined_vec2---numeric_vecseq_vec2-in-the-console.-what-happens-why">Q8. Try evaluating <code>combined_vec2 &lt;- numeric_vec*seq_vec2</code> in the console. What happens? Why?</h4>
+<h4 id="q9.-what-do-you-type-to-find-the-length-of-a-vector">Q9. What do you type to find the length of a vector?</h4>
+<h4 id="q10.-in-fact-compatible-does-not-mean-that-vectors-have-to-be-exactly-the-same-length.-try-evaluating-combined_vec3---numeric_vecrep_vec-in-the-console-and-look-at-the-result.-what-is-the-reasoning-behind-the-values-produced">Q10. In fact, compatible does not mean that vectors have to be exactly the same length. Try evaluating <code>combined_vec3 &lt;- numeric_vec*rep_vec</code> in the console, and look at the result. What is the reasoning behind the values produced?</h4>
+<h3 id="matrices">Matrices</h3>
+<p>Another major type of object in R is the matrix. A matrix is simply a rectangular grid of values. One of the simplest ways of producing a matrix is by combining several vectors through the functions <code>rbind()</code> and <code>cbind()</code> (try <code>rbind(numeric_vec, seq_vec1)</code>).</p>
+<h4 id="q11.-what-happens-when-you-evaluate-rbindnumeric_vec-seq_vec1-what-happens-when-you-evaluate-cbindnumeric_vec-seq_vec1-why">Q11. What happens when you evaluate <code>rbind(numeric_vec, seq_vec1)</code>? What happens when you evaluate <code>cbind(numeric_vec, seq_vec1)</code>? Why?</h4>
+<h4 id="q12.-when-you-evaluate-rbindnumeric_vec-seq_vec2-you-get-a-warning-message.-why">Q12. When you evaluate <code>rbind(numeric_vec, seq_vec2)</code> you get a warning message. Why?</h4>
+<h4 id="q13.-what-happens-when-you-evaluate-rbindnumeric_vec-rep_vec-why">Q13. What happens when you evaluate <code>rbind(numeric_vec, rep_vec)</code>? Why?</h4>
+<p>You can also create matrices directly in a number of different ways:</p>
+<pre class="sourceCode r"><code class="sourceCode r">mat1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">24</span>, <span class="dt">nrow =</span> <span class="dv">6</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
+mat2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">24</span>, <span class="dt">nrow =</span> <span class="dv">6</span>, <span class="dt">ncol =</span> <span class="dv">4</span>, <span class="dt">byrow =</span> T)
+mat3 &lt;-<span class="st"> </span><span class="kw">diag</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)
+mat4 &lt;-<span class="st"> </span><span class="kw">outer</span>(<span class="dt">X =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">Y =</span> <span class="dv">4</span>:<span class="dv">8</span>)
+mat5 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="st">&quot;Hello World&quot;</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">5</span>)</code></pre>
+<p>As with vectors, you can get to the elements of a matrix using square brackets, but with a two-dimensional index, one for row and another one for columns! (<code>mat1[4, 3]</code>, <code>mat1[1:4, 1:2]</code>, <code>mat1[1:3, ]</code>).</p>
+<h4 id="q14.-how-do-you-retrieve-the-2-column-of-mat2">Q14. How do you retrieve the 2 column of <code>mat2</code>?</h4>
+<p>You can perform simple calculations on matrices, in which case the calculation applies to each element separately:</p>
+<pre class="sourceCode r"><code class="sourceCode r">(mat3 +<span class="st"> </span><span class="dv">2</span>)*<span class="dv">2</span></code></pre>
+<p>You can also combine the values in several matrices, as long as the dimensions of the matrices are compatible</p>
+<pre class="sourceCode r"><code class="sourceCode r">(mat3*<span class="dv">100</span>) +<span class="st"> </span>mat4</code></pre>
+<p>Finally, you can create logical expressions that apply to an entire matrix. For example, try evaluating:</p>
+<pre class="sourceCode r"><code class="sourceCode r">(mat1 &gt;<span class="st"> </span><span class="dv">10</span>)</code></pre>
+<p>There are a number of useful functions that can be applied to matrices. Have a look at each of the following functions, and try to make sense of the output:</p>
+<ul>
+<li><code>length()</code></li>
+<li><code>dim()</code></li>
+<li><code>t()</code></li>
+<li><code>colSums()</code></li>
+<li><code>summary()</code><br />Keep in mind that if you ever need help in understanding a function, just bring up the help file for that function.</li>
+</ul>
+<h4 id="q15.-the-variable-mat1-describes-a-matrix-produced-by-the-following-code">Q15. The variable <code>mat1</code> describes a matrix produced by the following code:</h4>
+<pre class="sourceCode r"><code class="sourceCode r">mat1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">50</span>, <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">5</span>)</code></pre>
+<p>What number would we expect to see when we evaluate <code>mat1[1, 2]</code> (try to answer this without evaluating the code!)? Why not a different number?</p>
+<h4 id="q16.-which-of-these-commands-would-output-the-2nd-and-4th-columns-of-mat1-only-again-try-answering-this-without-evaluating-the-code">Q16. Which of these commands would output the 2nd and 4th columns of mat1 only (again, try answering this without evaluating the code!)?</h4>
+<pre class="sourceCode r"><code class="sourceCode r">mat1[<span class="dv">2</span>, <span class="dv">4</span>]
+<span class="kw">mat1</span>(, (<span class="dv">2</span>, <span class="dv">4</span>))
+mat1[<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), ]
+mat1[, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</code></pre>
+<h4 id="q17.-write-your-own-fully-annotated-program-for-creating-a-matrix-from-three-separate-vectors.-the-first-vector-vec1-should-be-50-elements-long-and-should-simply-contain-the-numbers-1-to-50.-the-second-vector-vec2-should-contain-the-square-of-these-numbers-i.e.-vec1-raised-to-the-power-2.-the-third-vector-vec3-should-contain-the-cube-of-these-numbers-i.e.-vec1-raised-to-the-power-3.-finally-create-a-matrix-my_matrix-which-has-vec1-as-the-first-row-vec2-as-the-second-row-and-vec3-as-the-third-row.">Q17. Write your own (fully annotated) program for creating a matrix from three separate vectors. The first vector, <code>vec1</code>, should be 50 elements long, and should simply contain the numbers 1 to 50. The second vector, <code>vec2</code>, should contain the square of these numbers (i.e. <code>vec1</code> raised to the power 2). The third vector, <code>vec3</code>, should contain the cube of these numbers (i.e. <code>vec1</code> raised to the power 3). Finally, create a matrix, <code>my_matrix</code>, which has <code>vec1</code> as the first row, <code>vec2</code> as the second row, and <code>vec3</code> as the third row.</h4>
+<h3 id="data-frame">Data frame</h3>
+<p>A very common type of object is the data frame. On the face of it, these look very similar to matrices. However, there are some important differences between data frames and matrices. The most important difference is that, in a matrix, all the elements need to be of the same class, while in a data frame, different classes are allowed. Several data frames are loaded into R by default (<code>puromycin_data &lt;- Puromycin</code>). Like in matrices, you can access different elements of the data frame using indices (<code>puromycin_data[1, 1]</code>). While you can get to specific columns using an index (<code>puromycin_data[, 2]</code>), R allows you to get to specific columns using their name and the dollar sign: <code>puromycin_data$rate</code>. Note that, although the data frame is of class data frame, typing <code>puromycin_data$rate</code> will return a vector of class numeric (try using the function <code>class()</code> to check this).</p>
+<p>Normally, when R encounters columns with words in a data frame (rather than numbers), it automatically interprets them as data of a different type, the factor. This allows us to work with categorical data, by organising the data into discrete categories, known as levels (e.g., red, yellow and blue could be the levels of a column called ‘colour’). Type the following for an example:</p>
+<pre class="sourceCode r"><code class="sourceCode r">puromycin_data$rate
+<span class="kw">class</span>(puromycin_data$rate)
+<span class="kw">levels</span>(puromycin_data$rate)
+<span class="kw">as.character</span>(puromycin_data$rate)</code></pre>
+<h3 id="lists">Lists</h3>
+<p>The last data type that is commonly seen in R is the list. A list is a bit like a complicated vector, where the elements can be objects of any type. For example, we can make a list of vectors:</p>
+<pre class="sourceCode r"><code class="sourceCode r">my_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">A =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">B =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>), <span class="dt">D =</span> <span class="kw">c</span>(<span class="st">&#39;G&#39;</span>, <span class="st">&#39;H&#39;</span>))</code></pre>
+<p>Again, we can access elements from the list using their index. However, using a single bracket <code>[]</code> will return a list (<code>my_list[1]</code>), while using the double bracket will return an object of the same type as the element of the list (<code>my_list[[1]]</code> will return a vector of numeric elements). We can get specific elements by their names using the bracket notation (<code>my_list[['A']]</code>) or the dollar sign (<code>my_list$A</code>). Lists can get very complex, since there is no limits on the data type of the elements. Therefore, you can get lists of vectors, lists of lists, lists of vectors and lists, etc…</p>
+<p>There are other types of data in R, with many being specific to particular libraries.</p>
+<h2 id="subsetting-a-data-frame">Subsetting a data frame</h2>
+<p>We have already come across one way of subsetting through the use of square brackets. By typing, for example,</p>
+<pre class="sourceCode r"><code class="sourceCode r">puromycin_data &lt;-<span class="st"> </span>Puromycin
+puromycin_data[<span class="dv">1</span>:<span class="dv">3</span>, ]
+puromycin_data[, <span class="dv">2</span>]</code></pre>
+<p>we can isolate certain rows of the data frame that we are interested in. We can use the dollar sign <code>$</code> to get a specific column:</p>
+<pre class="sourceCode r"><code class="sourceCode r">puromycin_data$rate</code></pre>
+<p>We can isolate data easily by using the logical statements mentioned above. For example, we can check which rows have a rate that is less than 100:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#returns TRUE or FALSE</span>
+puromycin_data$rate &lt;<span class="st"> </span><span class="dv">100</span>
+<span class="co">#returns which elements are TRUE</span>
+<span class="kw">which</span>(puromycin_data$rate &lt;<span class="st"> </span><span class="dv">100</span>)</code></pre>
+<p>We can use the subset function to select the rows for which the statement is TRUE:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># returns all the columns, but only the rows for which</span>
+<span class="co"># puromycin_data$rate &lt; 100 is TRUE</span>
+puromycin_sub &lt;-<span class="st"> </span><span class="kw">subset</span>(puromycin_data, rate &lt;<span class="st"> </span><span class="dv">100</span>)</code></pre>
+<p>We could subset by the &quot;state&quot; column:</p>
+<pre class="sourceCode r"><code class="sourceCode r">puromycin_treated &lt;-<span class="st"> </span><span class="kw">subset</span>(puromycin_data, <span class="dt">subset =</span> state ==<span class="st"> &quot;treated&quot;</span>)</code></pre>
+<p>This will return all fields for which the state is equal to &quot;treated&quot;. Notice that the factor must be written in quotation marks here, as R needs to know that it is looking for a particular set of characters, rather than a variable.</p>
+<h4 id="q18.-how-would-you-subset-the-variable-puromycin_data-to-return-only-those-fields-for-which-the-concentration-is-greater-than-0.1">Q18. How would you subset the variable <code>puromycin_data</code> to return only those fields for which the concentration is greater than 0.1?</h4>
+<h4 id="q19.-what-is-the-average-mean-concentration-for-these-cells">Q19. What is the average (mean) concentration for these cells?</h4>
+<h4 id="q20.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-cells-were-not-treated">Q20. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the cells were not treated?</h4>
+<h4 id="q21.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.5-and-the-rate-is-greater-than-100-remember-the-and-command-from-logical-expressions">Q21. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is less than 0.5 and the rate is greater than 100 (remember the &quot;and&quot; command from logical expressions)?</h4>
+<h4 id="q22.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-greater-than-0.2-and-the-cells-have-been-treated">Q22. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is greater than 0.2 and the cells have been treated?</h4>
+<h4 id="q23.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.1-or-greater-than-0.2">Q23. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is less than 0.1 or greater than 0.2?</h4>
+<h4 id="q24.-how-would-you-subset-the-variable-puromycin_data-to-return-only-the-fields-for-which-the-concentration-is-less-than-0.2-and-the-rate-is-less-than-70-and-the-cells-have-been-treated">Q24. How would you subset the variable <code>puromycin_data</code> to return only the fields for which the concentration is less than 0.2 and the rate is less than 70 and the cells have been treated?</h4>
+<h1 id="extra-section">Extra section!</h1>
+<h2 id="data-input-from-files">Data input from files</h2>
+<p>Open source data plays an increasingly important role recently, so it is vital to know how to input the data with various formats into your program. Choosing the right way of importing data will save you time and boost your efficiency when cleaning the data. To test your abilities, download <a href="http://genomics.senescence.info/longevity/longevity_genes.zip">longevity_genes/longevity.csv</a> and <a href="http://genomics.senescence.info/diet/TableS2.xls">TableS2.xls</a> and try loading them into R.</p>
+<pre class="sourceCode r"><code class="sourceCode r">longevity_genes_data  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;input location/longevity.csv&quot;</span>)
+longevity_genes_data  &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">file.choose</span>())                    <span class="co"># to choose the file</span>
+<span class="co"># try to figure out how to import Excel spreadsheets into R,</span>
+<span class="co"># which is an excessively discussed topic online.</span>
+<span class="co"># One way of doing it, is saving your Excel spreadsheet (TableS2.xls)</span>
+<span class="co"># as a tab delimited text file and loading it into R</span>
+<span class="kw">read.delim</span>(<span class="st">&quot;input location/file name.txt&quot;</span>)</code></pre>
+<h2 id="setting-the-working-directory">Setting the working directory</h2>
+<p>Setting directory is a highly intensely used function which helps group your code and your data, and access to different paths. For example, if you want to save a series of graphs that were generated by accessing data outside the current folder in a loop, it saves you time by grouping data for you.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set the working directory</span>
+<span class="kw">setwd</span>(“C:<span class="er">/</span>Users/Public/Documents”)   <span class="co"># or use the equivalent menu options</span>
+<span class="co"># get all the file names in the current directory</span>
+<span class="kw">list.files</span>(<span class="dt">path =</span> <span class="st">&quot;.&quot;</span>)
+<span class="co"># get the current working directory</span>
+<span class="kw">getwd</span>()</code></pre>
+<h2 id="data-output-into-various-formats">Data output into various formats</h2>
+<p>Most of the time, as either a data recorder or a data analyst, knowing the best way to output data is important. The reason to export data into various formats is to make work easier when switching data analysis software (e.g. from R to Excel and back).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># write a new subsetted data frame (create this using your previous skills) into a CSV file</span>
+<span class="kw">write.csv</span>(your subsetted data frame, <span class="dt">file =</span> <span class="st">&quot;output location/file name.csv&quot;</span>)
+<span class="co"># import your subsetted data frame into Excel</span>
+<span class="kw">write.table</span>(your subsetted data frame, <span class="dt">file =</span> <span class="st">&quot;output location/file name.xls&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)
+<span class="co"># create three variables, a, b, and c of any class and save them into a .RData file (What is this? When could it be useful?)</span>
+<span class="kw">save</span>(a, b, c, <span class="dt">file =</span> <span class="st">&quot;output location/file name.RData&quot;</span>)</code></pre>
+</body>
+</html>
