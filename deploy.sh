@@ -1,26 +1,35 @@
 #!/bin/bash
 
-YEAR=2015
-
 set -o errexit -o nounset
 
 rev=$(git rev-parse --short HEAD)
 
+# clear and re-create the out directory
+rm -rf out || exit 0;
+mkdir out;
+
 # RUN PANDOC and create HTML
-cd $YEAR
-mkdir public/$YEAR
-for i in *md; do
-  if [[ $i != 'README.md' ]]; then
-    pandoc -f markdown_github -c theme.css -s $i -o public/$YEAR/${i%%md}html;
+for YEAR in */ ; do
+  mkdir out/$YEAR
+
+  # copy whatever is in public to `out` directory
+  if [[ -n $(find $YEAR/public/ -type f -maxdepth 1) ]]; then
+    cp $YEAR/public/ out/$YEAR
   fi
+
+  for i in *md; do
+    if [[ $i != 'README.md' ]]; then
+      pandoc -f markdown_github -c $YEAR/public/theme.css -s $i -o out/$YEAR/${i%%md}html;
+    fi
+  done
 done
 
-cd public
+cd out
 
+# Push contents of out to new gh-pages
 git init
 
-
-git config user.name "roddypr"
+git config user.name "roddypr-travis"
 git config user.email "rodrigopracana@gmail.com"
 git remote add deploy "https://$GH_TOKEN@github.com/wurmlab/QMUL-MSc-Programming-in-R-and-Using-Linux.git"
 
