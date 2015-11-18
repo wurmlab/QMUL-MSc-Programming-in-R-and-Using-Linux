@@ -5,7 +5,7 @@ set -o errexit -o nounset
 rev=$(git rev-parse --short HEAD)
 
 # RUN PANDOC and create HTML
-for i in *md; do
+for i in */*md; do
   if [[ $i != 'README.md' ]]; then
     pandoc -f markdown_github -c theme.css -s $i -o public/${i%%md}html;
   fi
