@@ -14,12 +14,12 @@ for YEAR in */ ; do
 
   # copy whatever is in public to `out` directory
   if [[ -n $(find $YEAR/public/ -type f -maxdepth 1) ]]; then
-    cp $YEAR/public/ out/$YEAR
+    cp $YEAR/public/* out/$YEAR/
   fi
 
   for i in *md; do
     if [[ $i != 'README.md' ]]; then
-      pandoc -f markdown_github -c $YEAR/public/theme.css -s $i -o out/$YEAR/${i%%md}html;
+      pandoc -f markdown_github -c theme.css -s $i -o out/$YEAR/${i%%md}html;
     fi
   done
 done
