@@ -1,17 +1,19 @@
 #!/bin/bash
 
+YEAR=2015
+
 set -o errexit -o nounset
 
 rev=$(git rev-parse --short HEAD)
 
 # RUN PANDOC and create HTML
-for i in 2015/*md; do
+for i in $YEAR/*md; do
   if [[ $i != 'README.md' ]]; then
-    pandoc -f markdown_github -c theme.css -s $i -o public/${i%%md}html;
+    pandoc -f markdown_github -c theme.css -s $i -o $YEAR/public/${i%%md}html;
   fi
 done
 
-cd public
+cd $YEAR/public
 
 git init
 
