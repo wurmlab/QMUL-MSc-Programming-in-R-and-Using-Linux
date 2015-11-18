@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="public/theme.css" type="text/css" />
+</head>
+<body>
+<h1 id="computing-in-r---practical-1-regular-expression">Computing in R - Practical 1: Regular expression</h1>
+<p>November 2015</p>
+<p>Yannick Wurm, Rodrigo Pracana &amp; others (incl. Robert Verity)</p>
+<h2 id="introduction">Introduction</h2>
+<p>This practical series is aimed at teaching basic programming in R. You should already be familiar with R from the work you have done in the past week. However! The ultimate aim of these practicals differs from your previous work in that the focus will be on creating, accessing, and manipulating different data structures. As this is often the first step in real scientific research, you will find that the skills you develop here will be invaluable to you later on in your studies (keep that project in mind)! It's also a general (though very simple) introduction to programming: the stuff we will be learning about exists, in one way or another, in most other programming languages.</p>
+<p>You will be pleased to hear that we will not be covering any stats in these practicals (you should already have mastered stats by now). However, do not relax too much, as these practicals will move fairly quickly, and you will need to stay focused in order to do well in the final exam. Refer back to your notes from last year, make use of R’s help system (and Google), your neighbour, and if you're really stuck don't be afraid to ask a demonstrator.</p>
+<p>This practical is an introduction to regular expressions. Before we start, however, here is a note on good practice when coding.</p>
+<h2 id="good-coding-practice">Good coding practice</h2>
+<p>Keep your code clean and tidy by making use of comments and white space and respecting the style guide. Comments start with the character <code>#</code> (R simply does not interpret anything written between a comment sign and the end of the line. They allow you to annotate your code, i.e. to write helpful notes in between all the raw program code. Notice also that white space such as empty lines, spaces and indentations (obtained by pressing the Tab key) are invisible to R. Making good use of white space helps keep your code readable, and so does using clear and descriptive variable names.</p>
+<p>There are several different style guides out there explaining which style to use. You can choose whichever you prefer - the importance is that you are clear and consistent. We will be following the <a href="http://r-pkgs.had.co.nz/style.html">Hadley Wickham style guide</a>.</p>
+<p>The following two examples make the importance of good coding style clear. Both programs do exactly the same thing, but one will make sense one year from now, and the other will not!</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Example 1</span>
+boooom &lt;-<span class="fl">0.01</span>
+blah2          =<span class="fl">0.005</span>
+    blah3&lt;-<span class="st"> </span><span class="fl">0.0036</span>
+bigblah                           =<span class="st"> </span>boooom+<span class="st"> </span>blah2        +<span class="st"> </span>blah3
+tadayeahmanfunky&lt;-<span class="dv">100</span>*<span class="kw">exp</span>(bigblah*<span class="dv">10</span>)
+tadayeahmanfunky</code></pre>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Example 2</span>
+
+<span class="co">#--------------------------------</span>
+<span class="co"># Program:        PopSize.R</span>
+<span class="co"># Author:        Bob Verity</span>
+<span class="co"># Date:        01/10/2013</span>
+<span class="co"># Purpose:</span>
+<span class="co"># Works out the size of a population under a simple model of exponential growth.</span>
+<span class="co"># The growth rate is assumed to be equal to the sum of the nutrient content (% sugars),</span>
+<span class="co"># the temperature (centigrade above 20), and the humidity (%).</span>
+<span class="co"># Other parameters include the starting population size (number of individuals)</span>
+<span class="co"># and the time allowed to grow (hours).</span>
+<span class="co">#--------------------------------</span>
+
+<span class="co"># Define input parameters</span>
+nutrients     &lt;-<span class="st"> </span><span class="fl">0.01</span>
+temperature   &lt;-<span class="st"> </span><span class="fl">0.005</span>
+humidity      &lt;-<span class="st"> </span><span class="fl">0.0036</span>
+starting_size &lt;-<span class="st"> </span><span class="dv">100</span>
+grow_time     &lt;-<span class="st"> </span><span class="dv">10</span>
+
+<span class="co"># Calculate total growth rate</span>
+growth_rate &lt;-<span class="st"> </span>nutrients +<span class="st"> </span>temperature +<span class="st"> </span>humidity
+
+<span class="co"># Calculate population size at the end of the time period</span>
+end_size &lt;-<span class="st"> </span>starting_size *<span class="st"> </span><span class="kw">exp</span>(growth_rate *<span class="st"> </span>grow_time)
+
+<span class="co"># Return end population size in the console</span>
+end_size
+
+<span class="co">#--------------------------------</span></code></pre>
+<h4 id="q1.-write-your-own-well-annotated-and-fully-functional-script-for-calculating-the-volume-of-a-rectangular-room-with-the-following-dimensions">Q1. Write your own well annotated and fully functional script for calculating the volume of a rectangular room with the following dimensions:</h4>
+<p>length: 5m<br />width: 4m<br />height: 3m<br />The layout and design of the program are much more important than the calculations here!</p>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<p>Regular expressions are used to search for a specific pattern in a string. To understand them, we will take an example the actual in our data file are incorrect, or inconsistent. Run the following line of code to import the collections data frame:</p>
+<pre class="sourceCode R"><code class="sourceCode r">reptile_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;http://wurmlab.github.io/teaching/2013sbc361/reptile_data.txt&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>)</code></pre>
+<p>This data frame details the genus and species names of 16 endangered reptiles, along with the date at which they were listed as endangered. You can load just the names into a separate variable by running the code</p>
+<pre class="sourceCode R"><code class="sourceCode r">reptile_names &lt;-<span class="st"> </span><span class="kw">row.names</span>(reptile_data)</code></pre>
+<p>Have a close look at these names. Notice that each reptile has been given a unique identification number next to its name (don't look these numbers up - they don't mean anything)! Also, we can see that some names have been recorded incorrectly - the genus names for the <em>Liopholis</em> group have been recorded in lowercase, while we all know that genus names should be capitalized! All in all, this data appears quite &quot;messy&quot; and needs cleaning up.</p>
+<p>The tools that allow us to deal with this sort of problem fall under the heading regular expressions. These consist of a suite of tools that allow us to search for, locate, and replace characters or words within a data set. The really powerful thing about regular expressions is that we can do a &quot;fuzzy&quot; search, meaning the pattern we are searching for has some flexibility built into it.</p>
+<h3 id="basic-find-and-replace">Basic find and replace</h3>
+<p>First of all we will search through the vector reptile_names to find a list of the elements that contain the word &quot;liopholis&quot;. The function that allows us to do this is <code>grep()</code>, which has two main arguments; <code>pattern</code> and <code>x</code>. The pattern is the actual word, or part of a word, that we are looking for. The argument x describes the variable that we are searching through. In our case we want to evaluate the following code:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Search through reptile_names for the word &quot;liopholis&quot;, and output positions</span>
+<span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">x =</span> reptile_names)</code></pre>
+<p>The output of this code is a list of numbers. Each of these numbers describes the position of an element in the vector <code>reptile_names</code> that matches the pattern - in this case the 12th and 13th elements. Make sure you fully understand where these numbers came from!</p>
+<p>Sometimes it may be more useful to obtain the actual names within which the pattern was found, rather than a list of positions. We can do this by making use of the additional argument <code>value = T</code> (see the help file for the <code>grep()</code> function for a complete list of possible arguments). The new code reads:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Search through reptile_names for the word &quot;liopholis&quot;, and output names</span>
+<span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">x =</span> reptile_names, <span class="dt">value =</span> T)</code></pre>
+<p>Now we find that the output contains the actual elements of the vector that match the pattern, rather than just a list of positions. These names should correspond exactly with the positions found in the previous example.</p>
+<p>Finally, we may want to find and replace the pattern. This can be done using the function <code>gsub()</code>. The function <code>gsub()</code> takes arguments <code>pattern</code> and <code>x</code>, just like the function <code>grep()</code>, but it also has an additional argument replacement. The argument replacement describes the new word, or words, that we want to insert in place of pattern. For example, in the <code>reptile_data</code> the word &quot;liopholis&quot; is a genus name, and so should be capitalized. Thus, we want to replace the word &quot;liopholis&quot; with &quot;Liopholis&quot;, as follows:</p>
+<pre class="sourceCode R"><code class="sourceCode r"><span class="co"># Search through reptile_names for the word &quot;liopholis&quot; and replace with the word &quot;Liopholis.&quot;</span>
+reptile_names2 &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;liopholis&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;Liopholis&quot;</span>, <span class="dt">x =</span> reptile_names)</code></pre>
+<p>The output of this function is a new vector in which the desired replacement has been carried out. Notice that the code above stores this new vector in the variable reptile_names2.<br />Experiment with <code>grep()</code> and <code>gsub()</code> until you are confident at using them. Then answer the following questions:</p>
+<h4 id="q2.-how-could-you-use-regular-expressions-to-find-the-only-element-in-the-vector-reptile_names-that-contains-a-lowercase-q-what-is-the-position-of-this-element-in-the-vector">Q2. How could you use regular expressions to find the only element in the vector <code>reptile_names</code> that contains a lowercase &quot;q&quot;? What is the position of this element in the vector?</h4>
+<h4 id="q3.-you-want-to-import-the-reptile_names-data-into-excel-but-are-having-problems-due-to-the-spaces-between-the-words-a-common-problem.-how-could-you-use-gsub-to-replace-all-spaces-with-a-period">Q3. You want to import the <code>reptile_names</code> data into excel, but are having problems due to the spaces between the words (a common problem). How could you use <code>gsub()</code> to replace all spaces with a period?</h4>
+<h3 id="using-fuzzy-searching">Using &quot;fuzzy&quot; searching</h3>
+<p>One of the most powerful features of regular expressions is the ability to perform &quot;fuzzy&quot; searching. Simply put, by using special characters we can introduce some flexibility into the pattern that we are searching for.</p>
+<p>A slightly reduced list of special characters and their meanings is given below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Special Character</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">.</td>
+<td align="left">Any character</td>
+</tr>
+<tr class="even">
+<td align="left">?</td>
+<td align="left">The preceding item is optional and will be matched at most once.</td>
+</tr>
+<tr class="odd">
+<td align="left">*</td>
+<td align="left">The preceding item will be matched zero or more times.</td>
+</tr>
+<tr class="even">
+<td align="left">+</td>
+<td align="left">The preceding item will be matched one or more times.</td>
+</tr>
+</tbody>
+</table>
+<p>Additional special characters can be found:</p>
+<ul>
+<li>by Googling (e.g., &quot;Regexp cheat sheet for R&quot;)<br /></li>
+<li>in the slides for our course (from slide 45): <a href="http://www.slideshare.net/yannickwurm/2014924sbc361researchmethcomm">http://www.slideshare.net/yannickwurm/2014924sbc361researchmethcomm</a><br /></li>
+<li>by typing: ?regex in R</li>
+</ul>
+<p>These special characters can be used on their own, or in combination with one another. To help you out with understanding these symbols, here are a few examples:</p>
+<ul>
+<li>The pattern <code>.r</code> means any character, followed by the letter &quot;r&quot; (e.g. &quot;er&quot;, &quot;or&quot;, &quot;tr&quot;, &quot;3r&quot;).<br /></li>
+<li>The pattern <code>...r</code> means any character, followed by any character, followed by any character, followed by the letter &quot;r&quot; (e.g. &quot;beer&quot;, &quot;deer&quot;, &quot;zekr&quot;).<br /></li>
+<li>The pattern <code>l*at</code> means zero or more copies of the letter &quot;l&quot;, followed by the letters &quot;at&quot; (e.g. &quot;at&quot;, &quot;lat&quot;, &quot;llllllllllat&quot;).<br /></li>
+<li>The pattern <code>s.+s</code> means the letter &quot;s&quot;, followed by one or more copies of any character, followed by the letter &quot;s&quot; (e.g. &quot;sas&quot;, &quot;sts&quot;, &quot;sauces&quot;, &quot;serendipities&quot;, but NOT &quot;ss&quot;).<br /></li>
+<li>The pattern <code>.* .*</code> means zero or more copies of any character, followed by a space, followed by zero or more copies of any character (any combination of two words, e.g. &quot;test word&quot;).<br />Some of these examples might seem very confusing at first, but if you learn what each special character means on its own and then go through the pattern one at a time you should find that it makes sense.</li>
+</ul>
+<p>As an example of how fuzzy searching can be useful, we will now use these special characters to remove the ID tags from the reptile names. Notice that the ID numbers are of different lengths, but they are always separated with a colon from the part that we are interested in. Therefore, we can remove these characters by searching for zero or more copies of any character, followed by a colon, and replacing this pattern with an empty string. The single line of code that achieves this is as follows:</p>
+<pre class="sourceCode R"><code class="sourceCode r">reptile_names3 &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;.*:&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="dt">x =</span> reptile_names2)</code></pre>
+<p>Have a look inside the variable reptile_names3. We have successfully isolated the genus and species names away from the pesky ID tags, even though the exact format of the tags may vary between different entries. Tricks like this can save us a great deal of time - especially when our data set is thousands of lines long. In fact, we have only skimmed the surface of what regular expressions can do - I encourage anyone who is interested to take a deeper look.</p>
+<h4 id="q4.-what-does-the-pattern-..x..-mean-in-a-regular-expression">Q4. What does the pattern &quot;..x..&quot; mean in a regular expression?</h4>
+<h4 id="q5.-what-does-the-pattern-e-mean-in-a-regular-expression">Q5. What does the pattern &quot;e+&quot; mean in a regular expression?</h4>
+<h4 id="q6.-how-many-reptile-names-genus-or-species-contain-a-lowercase-o-or-an-uppercase-e">Q6. How many reptile names (genus or species) contain a lowercase &quot;o&quot; or an uppercase &quot;E&quot;?</h4>
+<h4 id="q7.-add-three-additional-columns-to-the-reptile_data-table">Q7. Add three additional columns to the <code>reptile_data</code> table:</h4>
+<ul>
+<li>one containing only the identifier numbers (e.g. 1423 without the “ID”)<br /></li>
+<li>one column containing only the genus (e.g. Bellatorias)<br /></li>
+<li>one containing only the species (excluding the subspecies, e.g. tympanum)<br />Hint - try to decompose this task, the solution is not a “one-liner”. Make use of the functions you have just learnt and focus on extracting the numbers, genus, and species, rather than the “add new columns” bit.</li>
+</ul>
+<h4 id="hacker-q8.-figure-out-how-to-capture-the-first-letter-of-the-species-and-transform-it-to-make-it-uppercase.-do-this-in-a-generic-manner-that-would-work-on-a-table-of-thousands-of-species.">Hacker Q8. Figure out how to “capture” the first letter of the species, and transform it to make it uppercase. Do this in a generic manner (that would work on a table of thousands of species).</h4>
+<p>Hint - look into the help page of “gsub”, especially the explanation for the “replacement” parameter, as well as the examples at the bottom of the help page.</p>
+</body>
+</html>

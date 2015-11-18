@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="public/theme.css" type="text/css" />
+</head>
+<body>
+<h1 id="example-functions">Example functions</h1>
+<p>Put together during QMUL's SBSM032 Stats &amp; Bioinformatics</p>
+<h2 id="collective-conversion-effort">Collective conversion effort</h2>
+<pre class="sourceCode R"><code class="sourceCode r">
+convert.cm.to.feet.and.inches &lt;-<span class="st"> </span>function(length.cm) {
+    if ( <span class="kw">class</span>(length.cm) !=<span class="st"> &#39;numeric&#39;</span>) {
+        <span class="kw">stop</span>(<span class="kw">paste</span>(<span class="st">&quot;Fail: I can only work with real numbers;&quot;</span>,
+                   <span class="st">&quot;you gave me a:&quot;</span>, <span class="kw">class</span>(length.cm)))
+    }
+    if ( length.cm &lt;<span class="st"> </span><span class="dv">0</span>) {
+        <span class="kw">stop</span>(<span class="kw">paste</span>(<span class="st">&quot;Fail: a length should be positive!!&quot;</span>,
+                   <span class="st">&quot;you gave me:&quot;</span>, length.cm))
+             
+    }
+    
+    length.inches&lt;-length.cm/<span class="fl">2.54</span>
+
+    length.feet &lt;-<span class="st"> </span>length.inches/<span class="dv">12</span>
+    length.wholefeet &lt;-<span class="st"> </span><span class="kw">floor</span>(length.feet)
+    length.remainingpartialfeet &lt;-<span class="st"> </span>length.feet -<span class="st"> </span>length.wholefeet
+    length.remaininginches &lt;-<span class="st"> </span>length.remainingpartialfeet *<span class="st"> </span><span class="dv">12</span>
+
+    <span class="kw">return</span>(<span class="kw">paste</span>(<span class="st">&quot;There are&quot;</span>,
+          length.wholefeet, <span class="st">&quot;feet and &quot;</span>,
+          length.remaininginches, <span class="st">&quot;inches in &quot;</span>,
+          length.cm, <span class="st">&quot; centimeters.&quot;</span>))
+}</code></pre>
+<h2 id="multiplying-numbers-from-10-to-100">Multiplying numbers from 10 to 100</h2>
+<pre class="sourceCode R"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">10</span>
+y &lt;-<span class="st"> </span><span class="dv">100</span>
+
+possible.numbers&lt;-x:y
+multiplied&lt;-<span class="dv">1</span>
+for (current.number in possible.numbers) {
+    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Current number is:&quot;</span>, current.number))
+    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Current &#39;multiplied&#39; was:&quot;</span>, multiplied))
+    multiplied &lt;-<span class="st"> </span>multiplied*current.number
+    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Current &#39;multiplied&#39; is now:&quot;</span>, multiplied))
+    <span class="kw">print</span>(<span class="st">&quot;### end of loop&quot;</span>)
+}
+multiplied</code></pre>
+</body>
+</html>
