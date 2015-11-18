@@ -8,9 +8,10 @@ rev=$(git rev-parse --short HEAD)
 
 # RUN PANDOC and create HTML
 cd $YEAR
+mkdir public/$YEAR
 for i in *md; do
   if [[ $i != 'README.md' ]]; then
-    pandoc -f markdown_github -c theme.css -s $i -o public/${i%%md}html;
+    pandoc -f markdown_github -c theme.css -s $i -o public/$YEAR/${i%%md}html;
   fi
 done
 
