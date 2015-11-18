@@ -160,7 +160,6 @@ Have a look inside the variable reptile_names3. We have successfully isolated th
 #### Q5. What does the pattern "e+" mean in a regular expression?
 
 #### Q6. How many reptile names (genus or species) contain a lowercase "o" or an uppercase "E"?
-Hint - you will have to combine your knowledge of regular expressions with your knowledge of logical expressions to answer this one!
 
 #### Q7. Add three additional columns to the `reptile_data` table:
 * one containing only the identifier numbers (e.g. 1423 without the “ID”)
