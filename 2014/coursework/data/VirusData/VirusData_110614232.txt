@@ -1,0 +1,107 @@
+"query" "virus.name" "blastx.hitorganism" "blastx.evalue" "blastn.hitorganism" "blastn.evalue"
+"SiDWS_contig10720_l884_nr14" "Periplaneta fuliginosa densovirus" "Planococcus citri densovirus" 2e-21 "Lactococcus prophage" 0.1
+"SI.CL.76.cl.7658.Contig1" "Macaque simian foamy virus" "Atlantic salmon swim bladder sarcoma virus" 0.001 "Maize rayado fino virus" 0.1
+"" "" "" NA "" NA
+"SiJWE09AAZ.scf" "Neodiprion lecontei NPV" "" NA "Mamestra configurata nucleopolyhedrovirus" 0.2
+"SI.CL.45.cl.4545.SiDWS_contig12998_l849_nr124" "Human herpesvirus" "" NA "Acanthamoeba polyphaga mimivirus" 0.6
+"SiDWS_contig04448_l222_nr2" "Microbacterium phage" "" NA "Thermus phage" 0.6
+"SI.CL.74.cl.7458.Contig1" "Shrimp white spot syndrome virus" "Lymphocystis disease virus - isolate China" 2e-04 "Melanoplus sanguinipes entomopoxvirus" 0.02
+"SI.CL.29.cl.2923.Contig1" "Equid herpesvirus" "Equid herpesvirus 1" 1e-13 "Yaba-like disease virus" 0.3
+"SI.CL.70.cl.7099.Contig1" "Snakehead retrovirus" "Simian foamy virus" 7e-18 "" NA
+"SI.CL.69.cl.6923.Contig1" "Solenopsis invicta virus" "Solenopsis invicta virus 2" 1e-157 "Solenopsis invicta virus" 0
+"" "" "" NA "" NA
+"" "" "" NA "" NA
+"SiJWF12AAD.scf" "Lactobacillus phage" "" NA "" 0.001
+"SiDWS_ER3K9GI01BATTJ_l_257" "Burkholderia phage" "" NA "Burkholderia phage" 0.2
+"SI.CL.70.cl.7099.Contig1" "Snakehead retrovirus" "Simian foamy virus" 7e-18 "" NA
+"" "" "" NA "" NA
+"SiDWS_ER3K9GI01DT4J1_l_247" "Mycobacterium phage" "" NA "Chrysodeixis chalcites nucleopolyhedrovirus" 0.7
+"SiDWS_contig06211_l233_nr4" "Nilaparvata lugens reovirus" "" NA "Anticarsia gemmatalis nucleopolyhedrovirus" 0.2
+"SiJWC04AAC2.scf" "Human immunodeficiency virus" "Human immunodeficiency virus 1" 0.002 "Sheeppox virus" 0.03
+"SI.CL.75.cl.7504.Contig1" "Plutella xylostella granulovirus" "Citrus yellow mosaic virus" 0.001 "Melanoplus sanguinipes entomopoxvirus" 0.6
+"SI.CL.74.cl.7461.Contig1" "Cotesia congregata bracovirus" "Mirabilis mosaic virus" 9e-11 "Lymphocystis disease virus" 0.2
+"SiDWS_ER3K9GI02I94MH_l_288" "Equine infectious anemia virus" "" NA "Glossina pallidipes salivary gland hypertrophy virus" 0.9
+"SiJWA08BAY2.scf" "Alcelaphine herpesvirus" "Hyposoter fugitivus ichnovirus" 7e-06 "Fritillary virus" 0.3
+"SiDWS_contig05528_l161_nr2" "Abelson murine leukemia virus" "Abelson murine leukemia virus" 2e-20 "Staphylococcus phage" 0.5
+"SiDWS_contig03963_l220_nr5" "Mycobacterium phage" "" NA "Enterobacteria phage" 0.6
+"SI.CL.19.cl.1930.Contig1" "Neodiprion lecontei NPV" "Cydia pomonella granulovirus" 1e-10 "Taura syndrome virus" 0.01
+"SiDWS_contig15308_l236_nr4" "Ovine adenovirus" "" NA "Clanis bilineata nucleopolyhedrosis virus" 0.7
+"SiDWS_contig16164_l166_nr1" "Rice stripe virus" "Rice stripe virus" 5e-15 "Rice stripe virus" 2e-09
+"SiDWS_contig21132_l138_nr1" "Rice stripe virus" "Rice stripe virus" 1e-08 "Rice stripe virus" 7e-06
+"SI.CL.74.cl.7483.Contig1" "Sweet clover necrotic mosaic virus" "" NA "Acanthamoeba polyphaga mimivirus" 0.7
+"SiDWS_ER3K9GI02I94MH_l_288" "Equine infectious anemia virus" "" NA "Glossina pallidipes salivary gland hypertrophy virus" 0.9
+"SI.CL.37.cl.3799.Contig1" "Chimpanzee cytomegalovirus" "" NA "Glypta fumiferanae ichnovirus" 0.2
+"SiDWS_ER3K9GI01CX656_l_277" "Lettuce infectious yellows virus" "" NA "Rabbit fibroma virus" 0.2
+"SiJWA01BCY.scf" "Actinoplanes phage" "Human herpesvirus 4 type 1" 2e-05 "Bovine herpesvirus" 0.4
+"SiDWS_contig07602_l197_nr2" "Bovine herpesvirus" "" NA "Tomato torrado virus" 0.6
+"SiDWS_ER3K9GI01ESA3V_l_262" "Salmonella phage" "" NA "Enterobacteria phage" 0.8
+"SiJWE12BBB.scf" "Bacillus phage" "" NA "Goatpox virus" 0.4
+"SI.CL.79.cl.7920.Contig1" "Solenopsis invicta virus" "Solenopsis invicta virus 2" 2e-88 "Solenopsis invicta virus" 0
+"" "" "" NA "" NA
+"SI.CL.21.cl.2155.Contig1" "Enterobacteria phage" "" NA "Enterobacteria phage" 0.6
+"SiDWS_contig12233_l242_nr1" "Ralstonia phage" "" NA "Emiliania huxleyi virus" 0.2
+"SiJWA11ADN.scf" "Bovine immunodeficiency virus" "Bovine immunodeficiency virus" 0.002 "Paramecium bursaria Chlorella virus" 0.1
+"SI.CL.21.cl.2155.Contig1" "Enterobacteria phage" "" NA "Enterobacteria phage" 0.6
+"SiDWS_ER3K9GI01BULH2_l_276" "Ovine pulmonary adenocarcinoma virus" "Spiroplasma kunkelii virus SkV1_CR2-3x" 0.001 "Bell pepper mottle tobamovirus" 0.05
+"SiDWS_contig05528_l161_nr2" "Abelson murine leukemia virus" "Abelson murine leukemia virus" 2e-20 "Staphylococcus phage" 0.5
+"SI.CL.74.cl.7461.Contig1" "Cotesia congregata bracovirus" "Mirabilis mosaic virus" 9e-11 "Lymphocystis disease virus" 0.2
+"SI.CL.09.cl.0939.Contig1" "Cherry rasp leaf virus" "Getah virus" 1e-05 "Ovine adenovirus" 0.8
+"SiDWS_ER3K9GI01CBUJ4_l_283" "Simian foamy virus" "Simian foamy virus" 6e-07 "Musca domestica salivary gland hypertrophy virus" 0.8
+"SiJWE12BBB.scf" "Bacillus phage" "" NA "Goatpox virus" 0.4
+"SiDWS_ER3K9GI01AGL9I_l_276" "Tomato ringspot virus" "" NA "Tomato ringspot virus" 0.8
+"SiJWG06ABS.scf" "Rice tungro bacilliform virus" "Dioscorea bacilliform virus" 4e-07 "Canarypox virus" 0.2
+"SiJWE12BBB.scf" "Bacillus phage" "" NA "Goatpox virus" 0.4
+"SiJWD09CAH2.scf" "Mycobacterium phage" "Human herpesvirus 8 type M" 0.003 "Macaca fuscata rhadinovirus" 0.09
+"SiDWS_ER3K9GI01BVK86_l_274" "Enterobacteria phage" "" NA "Staphylococcus phage" 0.2
+"SiDWS_contig05528_l161_nr2" "Abelson murine leukemia virus" "Abelson murine leukemia virus" 2e-20 "Staphylococcus phage" 0.5
+"" "" "" NA "" NA
+"SI.CL.74.cl.7483.Contig1" "Sweet clover necrotic mosaic virus" "" NA "Acanthamoeba polyphaga mimivirus" 0.7
+"SiJWF02ADJ.scf" "Carnation etched ring virus" "Eupatorium vein clearing virus" 4e-04 "Bat coronavirus" 0.2
+"SiDWS_ER3K9GI01DT4J1_l_247" "Mycobacterium phage" "" NA "Chrysodeixis chalcites nucleopolyhedrovirus" 0.7
+"SiDWS_ER3K9GI01ETGTJ_l_262" "Simian foamy virus" "Simian foamy virus" 2e-07 "Ranid herpesvirus" 0.2
+"SiDWS_ER3K9GI01CX656_l_277" "Lettuce infectious yellows virus" "" NA "Rabbit fibroma virus" 0.2
+"SiDWS_FHGW7JS02HY0QG_l_269" "Human immunodeficiency virus" "Human immunodeficiency virus 1" 3e-08 "Haloarcula phage" 0.2
+"SiDWS_contig06211_l233_nr4" "Nilaparvata lugens reovirus" "" NA "Anticarsia gemmatalis nucleopolyhedrovirus" 0.2
+"SiDWS_ER3K9GI01CBUJ4_l_283" "Simian foamy virus" "Simian foamy virus" 6e-07 "Musca domestica salivary gland hypertrophy virus" 0.8
+"SiDWS_ER3K9GI01B5XQV_l_286" "Bacteriophage" "" NA "Bacteriophage" 0.2
+"SI.CL.33.cl.3382.Contig1" "Amsacta moorei entomopoxvirus" "" NA "Bacillus phage" 0.8
+"" "" "" NA "" NA
+"SiJWG04BBZ.scf" "Emiliania huxleyi virus" "Emiliania huxleyi virus 86" 6e-41 "" NA
+"" "" "" NA "" NA
+"SiJWH05BDA.scf" "Human herpesvirus" "Equid herpesvirus 4" 2e-05 "" NA
+"SI.CL.76.cl.7658.Contig1" "Macaque simian foamy virus" "Atlantic salmon swim bladder sarcoma virus" 0.001 "Maize rayado fino virus" 0.1
+"SiJWA06BBH.scf" "Uukuniemi virus" "Rice stripe virus" 1e-23 "Yaba-like disease virus" 0.006
+"SiDWS_ER3K9GI01BULH2_l_276" "Ovine pulmonary adenocarcinoma virus" "Spiroplasma kunkelii virus SkV1_CR2-3x" 0.001 "Bell pepper mottle tobamovirus" 0.05
+"SiJWA06BBH.scf" "Uukuniemi virus" "Rice stripe virus" 1e-23 "Yaba-like disease virus" 0.006
+"SiDWS_ER3K9GI02I94MH_l_288" "Equine infectious anemia virus" "" NA "Glossina pallidipes salivary gland hypertrophy virus" 0.9
+"SiDWS_contig21132_l138_nr1" "Rice stripe virus" "Rice stripe virus" 1e-08 "Rice stripe virus" 7e-06
+"SiDWS_FHGW7JS02HHAGP_l_295" "Rice grassy stunt virus" "Rice grassy stunt virus" 1e-08 "Acanthocystis turfacea Chlorella virus" 0.06
+"SiDWS_contig04448_l222_nr2" "Microbacterium phage" "" NA "Thermus phage" 0.6
+"SiDWS_ER3K9GI01ET2G0_l_261" "Cotesia congregata bracovirus" "" NA "Cotesia congregata bracovirus" 0.01
+"SiDWS_contig13853_l713_nr35" "Bovine herpesvirus" "" NA "Mule deer poxvirus" 0.1
+"SI.CL.52.cl.5270.Contig1" "Rice stripe virus" "Rice stripe virus" 3e-11 "Yersinia phage" 0.2
+"SiDWS_ER3K9GI01B5XQV_l_286" "Bacteriophage" "" NA "Bacteriophage" 0.2
+"SiDWS_E0G65UR08JCSWM_l_255" "Cydia pomonella granulovirus" "Cydia pomonella granulovirus" 3e-44 "Cydia pomonella granulovirus" 1e-138
+"SiJWG01BCK2.scf" "Human herpesvirus" "" NA "Chrysodeixis chalcites nucleopolyhedrovirus" 0.02
+"SiJWA01BCY.scf" "Actinoplanes phage" "Human herpesvirus 4 type 1" 2e-05 "Bovine herpesvirus" 0.4
+"SI.CL.75.cl.7504.Contig1" "Plutella xylostella granulovirus" "Citrus yellow mosaic virus" 0.001 "Melanoplus sanguinipes entomopoxvirus" 0.6
+"SI.CL.33.cl.3382.Contig1" "Amsacta moorei entomopoxvirus" "" NA "Bacillus phage" 0.8
+"SiJWH07AAT.scf" "Strawberry vein banding virus" "Strawberry vein banding virus" 3e-04 "" NA
+"SiDWS_ER3K9GI01ET2G0_l_261" "Cotesia congregata bracovirus" "" NA "Cotesia congregata bracovirus" 0.01
+"SiJWH08ACB.scf" "Cercopithecine herpesvirus" "Orgyia pseudotsugata MNPV" 1e-04 "" NA
+"gi_121963996-gb_EH413163.1" "Human herpesvirus" "Paramecium bursaria Chlorella virus 1" 1e-05 "Lactococcus phage" 0.1
+"SiDWS_ER3K9GI01DOTBL_l_173" "Enterobacteria phage" "" NA "Bovine papillomavirus" 0.5
+"SI.CL.19.cl.1930.Contig1" "Neodiprion lecontei NPV" "Cydia pomonella granulovirus" 1e-10 "Taura syndrome virus" 0.01
+"SI.CL.70.cl.7099.Contig1" "Snakehead retrovirus" "Simian foamy virus" 7e-18 "" NA
+"SI.CL.19.cl.1930.Contig1" "Neodiprion lecontei NPV" "Cydia pomonella granulovirus" 1e-10 "Taura syndrome virus" 0.01
+"SiDWS_contig21132_l138_nr1" "Rice stripe virus" "Rice stripe virus" 1e-08 "Rice stripe virus" 7e-06
+"SI.CL.52.cl.5270.Contig1" "Rice stripe virus" "Rice stripe virus" 3e-11 "Yersinia phage" 0.2
+"SI.CL.29.cl.2923.Contig1" "Equid herpesvirus" "Equid herpesvirus 1" 1e-13 "Yaba-like disease virus" 0.3
+"SiDWS_contig10720_l884_nr14" "Periplaneta fuliginosa densovirus" "Planococcus citri densovirus" 2e-21 "Lactococcus prophage" 0.1
+"SI.CL.74.cl.7483.Contig1" "Sweet clover necrotic mosaic virus" "" NA "Acanthamoeba polyphaga mimivirus" 0.7
+"SiDWS_ER3K9GI01DZ63U_l_270" "Hepatitis E virus" "" NA "Archaeal BJ1 virus" 0.8
+"SiDWS_FHGW7JS02JGN16_l_277" "Gryllus bimaculatus nudivirus" "" NA "Simian enterovirus" 0.8
+"SI.CL.69.cl.6913.Contig1" "Rice dwarf virus" "" NA "Meleagrid herpesvirus" 0.03
+"SiDWS_FHGW7JS02GLHX3_l_238" "Bovine papular stomatitis virus" "Bovine papular stomatitis virus" 7e-06 "" NA
+"SI.CL.79.cl.7920.Contig1" "Solenopsis invicta virus" "Solenopsis invicta virus 2" 2e-88 "Solenopsis invicta virus" 0
+"SI.CL.45.cl.4571.Contig1" "Cydia pomonella granulovirus" "Cryptophlebia leucotreta granulovirus" 1e-12 "Paramecium bursaria Chlorella virus" 0.5
