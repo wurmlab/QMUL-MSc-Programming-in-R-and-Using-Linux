@@ -1,8 +1,6 @@
 # Computing in R - Practical 1: Regular expression
 
-SBC361: Research Methods and Communication
-
-October 2015
+November 2015
 
 Yannick Wurm, Rodrigo Pracana & others (incl. Robert Verity)
 
