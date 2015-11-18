@@ -68,13 +68,6 @@ TIP: There are several ways to do this. Remember that R is case sensitive, so yo
 
 #### Q7. Which genus has been caught the greatest number of times?
 
-## Exam Reminders
-
-* You will have to sit the exam on one of the university PCs.
-* You will submit your answers through a Google form. Please do not use Internet Explorer for this. The form does not save as you fill in your answers, so please also save them in a text document or with screenshots so that you do not lose them if something goes wrong.
-* Do not click ‘submit’ until you have filled in all of your answers on the form.
-* You will need to have your student ID number and your college email address to hand to access all the exam content and to fill in the Google form.
-* You are allowed to use the internet and your class notes during the exam, but you are not allowed to use chat or forums to ask for answers and you are not allowed to copy off one another.
 
 # Bonus hacker question
 
