@@ -424,11 +424,11 @@ if (this.practical == 'boring') {
 
 The conditions need to follow the rules of conditional statements. You can find more information in the Rbasics document. It also follows boolean logic, which you should also read about (which defines how R evaluates statements like `TRUE & FALSE` or `(TRUE & TRUE) | (FALSE & TRUE) & TRUE`).
 
-#### Q18 Add another argument to the function created in question Q12, to allow the user to ask for the speed in metric (km/h) or imperial (miles/h) units. Make sure you use an if statement!
+#### Q18 Add another argument to the function created in question Q6, to allow the user to ask for the speed in metric (km/h) or imperial (miles/h) units. Make sure you use an if statement!
 
 #### Q19 Make a for loop that runs from numbers 1 to 10000. Make it stop early when the sum of all numbers that have been looped through gets larger than 50000. How many times did the loop run for? You will have to use the function `break` to break out of the loop early.
 
-#### Q19.a (hacker bonus) A more elegant way of doing question Q22 would be to use a while loop instead of a for loop. Give it a try if you have time (it doesn't use an if statement).
+#### Q19.a (hacker bonus) A more elegant solution for the previous question would be to use a while loop instead of a for loop. Give it a try if you have time (this solution doesn't use an if statement).
 
 ## Bringing it all together
 
