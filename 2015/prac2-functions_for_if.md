@@ -192,7 +192,7 @@ phrase_vec <- c()
 for (practical_attribute in practical_attribute_vec) {
  	phrase <- paste("This practical is", practical_attribute)
  	# Add the loop result to end of the vector of results
- 	phrase_vec <- append(phrase_vec, phrase)
+ 	phrase_vec <- c(phrase_vec, phrase)
 }
 ```
 
