@@ -184,7 +184,7 @@ phrase_vec &lt;-<span class="st"> </span><span class="kw">c</span>()
 for (practical_attribute in practical_attribute_vec) {
     phrase &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;This practical is&quot;</span>, practical_attribute)
     <span class="co"># Add the loop result to end of the vector of results</span>
-    phrase_vec &lt;-<span class="st"> </span><span class="kw">append</span>(phrase_vec, phrase)
+    phrase_vec &lt;-<span class="st"> </span><span class="kw">c</span>(phrase_vec, phrase)
 }</code></pre>
 <p>A different way of approaching a for loop is to loop through the indexes of a vector, rather than the vector itself. In the following code, we also create a vector for the result with the same length as the vector we are looping through and we use the index to 'populate' it:</p>
 <pre class="sourceCode R"><code class="sourceCode r">## Vector to loop through
