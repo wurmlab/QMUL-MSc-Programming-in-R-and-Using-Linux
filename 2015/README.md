@@ -13,7 +13,7 @@
     1. [Functions](./prac2-functions_for_if.md#functions)
     2. [Loops](./prac2-functions_for_if.md#loops)
     3. [If statements](./prac2-functions_for_if.md#if-statements)
-  * Practical 3: [Extra exercises](./prac3-extra.md)
+  * Practical 3: [Advanced exercises](./prac3-extra.md)
 * [Introduction to Unix (on Amazon AWS)](./unix.md)
 
 
