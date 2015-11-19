@@ -362,7 +362,7 @@ tail(long_data)
 
 #### Q15-A. Write a function that converts a short DNA sequence of 15 bases (e.g. "ACCTGTCATCATCCC") to RNA and splits the string into codon triplets. You will need to:
 
-  * load the data into R: `dna_string <- scan("https://wurmlab.github.io/SBC361-programming-in-R/sequence.txt", what = character())`
+  * load the data into R: `dna_string <- scan("http://wurmlab.github.io/SBC361-programming-in-R/sequence.txt", what = character())`
   * replace T with U  (thymine with uracil to convert DNA to RNA)
   * use `substring()` to split the sequence into triplets and `seq()` within `substring()`
   * return the RNA triplets string
