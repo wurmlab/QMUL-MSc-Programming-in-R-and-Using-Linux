@@ -86,3 +86,12 @@ butterfly_reference <- read.csv(butterfly_ref_url, header = T)
 One of the difficulties of this exercise is that you will have to perform a different process depending on whether the sample already has its latin name or not. You may find that using `if` statements may be helpful (which you will have to look up). Alternatively, you may want to subset the data into the two groups (where the transformation is either from latin to latin or common to latin), and do the transformation independently on each.
 
 This question is not easy! But it is typical of the sort of thing researchers do from day to day and a very good test of all the things you have learned this year!
+
+
+# Pushing further
+
+## Create a hangman game
+
+## Create a game that displays the first 2 sentences of a random wikipedia entry, and the player needs to guess what the wikipedia title was? 
+
+## Implement Conway's Game of Life: https://en.wikipedia.org/wiki/Conway's_Game_of_Life
