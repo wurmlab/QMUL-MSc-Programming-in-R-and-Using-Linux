@@ -364,16 +364,19 @@ tail(long_data)
 
   * load the data into R: `dna_string <- scan("http://wurmlab.github.io/SBC361-programming-in-R/sequence.txt", what = character())`
   * replace T with U  (thymine with uracil to convert DNA to RNA)
-  * use `substring()` to split the sequence into triplets and `seq()` within `substring()`
+  * use `substring()` to split the sequence into triplets and `seq()` within `substring()`. You can do this as part of a loop.
   * return the RNA triplets string
 
-Note `substring()` takes a 'first' and 'last' argument. The 'first' would be a sequence indicating where the beginnings of your triplets are. The 'last' argument would be a sequence indicating where the ends of your triplets are.  In `seq()` you will also indicate you want triplets.  
+Note `substring()` takes a 'first' and 'last' argument. 
 
 As an example:
 
 ```R
-dna_string <- c("AAATTT")
-substring(dna_string, seq(1, 4, by = 3), seq(3, 6, by = 3))
+> dna_string <- c("AAATTT")
+> substring(dna_string, first=1, last=3)
+[1] "AAA"
+> substring(dna_string, first=4, last=6)
+[1] "TTT"
 ```
 
 #### Q15-B. Once you have created the function, see if you can modify it to work for a sequence with any number of characters. Tip: you can use `nchar()` to create a variable such as `num_characters`.
