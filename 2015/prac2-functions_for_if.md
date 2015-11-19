@@ -367,9 +367,7 @@ tail(long_data)
   * use `substring()` to split the sequence into triplets and `seq()` within `substring()`. You can do this as part of a loop.
   * return the RNA triplets string
 
-Note `substring()` takes a 'first' and 'last' argument. 
-
-As an example:
+Note `substring()` takes a 'first' and 'last' argument.  As an example:
 
 ```R
 > dna_string <- c("AAATTT")
