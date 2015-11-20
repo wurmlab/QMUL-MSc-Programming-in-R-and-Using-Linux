@@ -52,8 +52,8 @@ finger
 
 ## Do real stuff
 
-1. Within the directory you created above, launch R - make a plot. 
-2. Within this new directory, download a gene sequence in fasta from somwhere, BLAST it against Swissprot - monitor with `htop` (in a different window) while this happens. 
+1. Within your directory you created above, launch R - make a plot. 
+2. Within your directory, download a gene sequence in fasta from somwhere, BLAST it against Swissprot - monitor with `htop` (in a different window) while this happens. 
    * `blast` may already be installed
    * You can download a BLAST-formatted SwissProt database here:    `http://www.antgenomes.org/~yannickwurm/tmp/2014-10-15-Swissprot.zip`
 
