@@ -42,7 +42,7 @@ R
 
 Remote: 
  
- * `ssh mscstudent@ec2-54-228-34-62.eu-west-1.compute.amazonaws.com`
+ * `ssh mscstudent@inb.io`
  * ssh mpx163@frontend1.apocrita.hpc.qmul.ac.uk
  * qlogin
    qlogin -pe smp 4 -l h_vmem=10G  # four cores and 40 gigs of Ram 
@@ -56,7 +56,7 @@ Thanks to [Amazon Web Services](http://aws.amazon.com) for providing free access
 
 ### Unix
 
-1. Use MobaXterm (on Windows) or Terminal to: `ssh mscstudent@ec2-54-228-34-62.eu-west-1.compute.amazonaws.com`
+1. Use MobaXterm (on Windows) or Terminal to: `ssh mscstudent@inb.io`
    secret: ____arethebest
 2. In the home folder, create your own directory (subfolder) with your name. 
 3. Within this directory, launch R - make a plot. 
