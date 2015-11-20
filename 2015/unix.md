@@ -51,7 +51,7 @@ finger
 ```
 
 ## Do real stuff
-
+0. What kind of resources does the machine you are connected to have: how many processing cores and how much RAM? How much disk space? 
 1. Within your directory you created above, launch R - make a plot. 
 2. Within your directory, download a gene sequence in fasta from somwhere, BLAST it against Swissprot - monitor with `htop` (in a different window) while this happens. 
    * `blast` may already be installed
